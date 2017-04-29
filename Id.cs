@@ -24,8 +24,8 @@ namespace GPS.Tools
             _pool = pool;
         }
         
-        public static explicit operator string(Id id) => id.Name;
-        public static explicit operator Id(string name) => new Id(name);
+        public static implicit operator string(Id id) => id.Name;
+        public static implicit operator Id(string name) => new Id(name);
         public static bool operator==(Id left, Id right) => left?.Value == right?.Value;
         public static bool operator!=(Id left, Id right) => left?.Value != right?.Value;
         public override string ToString() => Name;
