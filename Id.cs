@@ -1,6 +1,6 @@
 namespace GPS.Tools
 {
-    public class Id
+    public struct Id
     {
         public static IdPool DefaultPool = new IdPool();
         public int Value { get; private set; }
@@ -26,8 +26,8 @@ namespace GPS.Tools
         
         public static implicit operator string(Id id) => id.Name;
         public static implicit operator Id(string name) => new Id(name);
-        public static bool operator==(Id left, Id right) => left?.Value == right?.Value;
-        public static bool operator!=(Id left, Id right) => left?.Value != right?.Value;
+        public static bool operator==(Id left, Id right) => left.Value == right.Value;
+        public static bool operator!=(Id left, Id right) => left.Value != right.Value;
         public override string ToString() => Name;
         public override int GetHashCode() => Value;
         public override bool Equals(object other) => other is Id oid && Value == oid.Value;

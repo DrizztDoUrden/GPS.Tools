@@ -6,6 +6,7 @@ namespace GPS.Tools
 	{
 		public Id this[string name] => new Id(this, name);
 		public string this[Id id] => _idToName[id.Value];
+		public int Count => _next;
 
 		public int GetRawId(string name)
 		{
